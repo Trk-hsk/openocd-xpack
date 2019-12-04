@@ -195,6 +195,7 @@ function do_openocd()
             --enable-vsllink \
             --disable-zy1000-master \
             --disable-zy1000 \
+            --enable-jtag_vpi \
 
           cp "config.log" "${LOGS_FOLDER_PATH}/config-openocd-log.txt"
         ) 2>&1 | tee "${LOGS_FOLDER_PATH}/configure-openocd-output.txt"
@@ -206,7 +207,7 @@ function do_openocd()
         echo "Running openocd make..."
       
         # Parallel builds fail.
-        make bindir="bin" pkgdatadir=""
+        make bindir="bin" pkgdatadir="" -j32
         if [ "${WITH_STRIP}" == "y" ]
         then
           make install-strip

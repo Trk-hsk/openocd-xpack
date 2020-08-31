@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xpack-dev-tools/openocd-xpack.git"
+    "url": "git+git@xl01:software/riscv-gnu-toolchain/openocd.git"
   },
   "keywords": [
     "xpack",

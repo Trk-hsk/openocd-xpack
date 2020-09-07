@@ -74,6 +74,7 @@ function do_openocd()
         PARPORT_GIVEIO="--enable-parport-giveio"
         # --enable-sysfsgpio -> available only on Linux
         SYSFSGPIO="--disable-sysfsgpio"
+        FTD2XX="--enable-ftd2xx"
 
       elif [ "${TARGET_PLATFORM}" == "linux" ]
       then
@@ -95,6 +96,7 @@ function do_openocd()
         PARPORT="--enable-parport"
         PARPORT_GIVEIO="--enable-parport-giveio"
         SYSFSGPIO="--enable-sysfsgpio"
+        FTD2XX="--disable-ftd2xx"
 
       elif [ "${TARGET_PLATFORM}" == "darwin" ]
       then
@@ -119,6 +121,7 @@ function do_openocd()
         PARPORT_GIVEIO="--disable-parport-giveio"
         # --enable-sysfsgpio -> available only on Linux
         SYSFSGPIO="--disable-sysfsgpio"
+        FTD2XX="--disable-ftd2xx"
 
       else
 
@@ -196,6 +199,7 @@ function do_openocd()
             --disable-zy1000-master \
             --disable-zy1000 \
             --enable-jtag_vpi \
+            ${FTD2XX} \
 
           cp "config.log" "${LOGS_FOLDER_PATH}/config-openocd-log.txt"
         ) 2>&1 | tee "${LOGS_FOLDER_PATH}/configure-openocd-output.txt"

@@ -631,3 +631,43 @@ function do_copy_libudev()
     fi
   fi
 }
+
+function do_ftd2xx() {
+  FTD2XX_SRC_FOLDER_NAME="ftd2xx"
+  FTD2XX_FOLDER_NAME="${FTD2XX_SRC_FOLDER_NAME}"
+  local ftd2xx_archive="${FTD2XX_SRC_FOLDER_NAME}.zip"
+
+  local FTD2XX_VERSION="2.12.28"
+  local ftd2xx_url="https://www.ftdichip.com/Drivers/CDM/CDM%20v2.12.28%20WHQL%20Certified.zip"
+
+  local ftd2xx_stamp_file_path="${INSTALL_FOLDER_PATH}/stamp-ftd2xx-${FTD2XX_VERSION}-installed"
+  if [ ! -f "${ftd2xx_stamp_file_path}" ]
+  then
+
+    mkdir -p "${SOURCES_FOLDER_PATH}/${FTD2XX_SRC_FOLDER_NAME}"
+    cd "${SOURCES_FOLDER_PATH}/${FTD2XX_SRC_FOLDER_NAME}"
+
+    download_and_extract "${ftd2xx_url}" "${ftd2xx_archive}" \
+      "${FTD2XX_SRC_FOLDER_NAME}"
+
+    cp -rv ./i386/*.{dll,lib,sys} "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x32/install/libs/bin"
+    cp -rv ./amd64/*.{dll,lib,sys} "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x64/install/libs/bin"
+
+    mv "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x32/install/libs/bin/ftd2xx.dll" "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x32/install/libs/bin/FTD2XX.dll"
+    mv "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x64/install/libs/bin/ftd2xx64.dll" "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x64/install/libs/bin/FTD2XX.dll"
+
+    # hard code preprocessor
+    cp -v ./*.h "${WORK_FOLDER_PATH}/${OPENOCD_SRC_FOLDER_NAME}"/src/jtag/drivers/
+    sed -ie "s/<ftd2xx.h>/\"ftd2xx.h\"/g" "${WORK_FOLDER_PATH}/${OPENOCD_SRC_FOLDER_NAME}"/src/jtag/drivers/mpsse.c
+
+    mkdir -p "${LIBS_INSTALL_FOLDER_PATH}/include"
+    cp -v ./*.h "${LIBS_INSTALL_FOLDER_PATH}/include/"
+
+    touch "${ftd2xx_stamp_file_path}"
+
+    ls "${LIBS_INSTALL_FOLDER_PATH}/include/"
+    
+  else
+    echo "Library ftd2xx already installed."
+  fi
+}

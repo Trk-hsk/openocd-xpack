@@ -207,7 +207,7 @@ fi
 # -----------------------------------------------------------------------------
 
 OPENOCD_SRC_FOLDER_NAME=${OPENOCD_SRC_FOLDER_NAME:-"${OPENOCD_PROJECT_NAME}.git"}
-OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"https://github.com/xpack-dev-tools/openocd.git"}
+OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"http://xl01.l:8634/software/riscv-gnu-toolchain/openocd.git"}
 
 # Used in the licenses folder.
 OPENOCD_FOLDER_NAME="openocd-${OPENOCD_VERSION}"
@@ -234,6 +234,8 @@ do_libftdi
 do_libiconv
 
 do_hidapi
+
+do_ftd2xx
 
 # -----------------------------------------------------------------------------
 

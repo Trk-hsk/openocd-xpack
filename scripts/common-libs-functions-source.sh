@@ -647,7 +647,8 @@ function do_ftd2xx() {
     mkdir -p "${SOURCES_FOLDER_PATH}/${FTD2XX_SRC_FOLDER_NAME}"
     cd "${SOURCES_FOLDER_PATH}/${FTD2XX_SRC_FOLDER_NAME}"
 
-    download_and_extract "${ftd2xx_url}" "${ftd2xx_archive}" \
+    # that `echo "A"` is send to unzip to let it overwrite all files
+    echo "A" | download_and_extract "${ftd2xx_url}" "${ftd2xx_archive}" \
       "${FTD2XX_SRC_FOLDER_NAME}"
 
     cp -rv ./i386/*.{dll,lib,sys} "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x32/install/libs/bin"
@@ -657,9 +658,13 @@ function do_ftd2xx() {
     mv "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x64/install/libs/bin/ftd2xx64.dll" "${LIBS_INSTALL_FOLDER_PATH}/../../../win32-x64/install/libs/bin/FTD2XX.dll"
 
     # hard code preprocessor
-    cp -v ./*.h "${WORK_FOLDER_PATH}/${OPENOCD_SRC_FOLDER_NAME}"/src/jtag/drivers/
-    sed -ie "s/<ftd2xx.h>/\"ftd2xx.h\"/g" "${WORK_FOLDER_PATH}/${OPENOCD_SRC_FOLDER_NAME}"/src/jtag/drivers/mpsse.c
-
+    # CAVEAT: source code may not be here on the first build; but the first clean build when using `--all` 
+    # is a linux build so it doesn't matter if the sources are patched at that time
+    # if you are using --win32 or --win64 in a clean build, this is likely to fail.
+    if [ -d "${WORK_FOLDER_PATH}/${OPENOCD_SRC_FOLDER_NAME}"/src/jtag/drivers ]; then
+      cp -v ./*.h "${WORK_FOLDER_PATH}/${OPENOCD_SRC_FOLDER_NAME}"/src/jtag/drivers/
+      sed -ie "s/<ftd2xx.h>/\"ftd2xx.h\"/g" "${WORK_FOLDER_PATH}/${OPENOCD_SRC_FOLDER_NAME}"/src/jtag/drivers/mpsse.c
+    fi
     mkdir -p "${LIBS_INSTALL_FOLDER_PATH}/include"
     cp -v ./*.h "${LIBS_INSTALL_FOLDER_PATH}/include/"
 

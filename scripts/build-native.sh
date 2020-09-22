@@ -133,7 +133,7 @@ then
 
   do_hidapi
 
-  do_ftd2xx
+  do_ftd2xx "2.12.28"
 
 fi
 

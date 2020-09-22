@@ -176,12 +176,12 @@ LIBFTDI_PATCH=""
 LIBUSB_W32_PATCH=""
 
 # Keep them in sync with combo archive content.
-if [[ "${RELEASE_VERSION}" =~ 0\.10\.0-13 ]]
+if [[ "${RELEASE_VERSION}" =~ 0\.10\.0-15 ]]
 then
 
   # ---------------------------------------------------------------------------
   
-  OPENOCD_VERSION="0.10.0-13"
+  OPENOCD_VERSION="0.10.0-15"
 
   OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"xpack"}
   OPENOCD_GIT_COMMIT=${OPENOCD_GIT_COMMIT:-"191d1b176cf32280fc649d3c5afcff44d6205daf"}

@@ -4,7 +4,7 @@
 #   (https://xpack.github.io)
 # Copyright (c) 2019 Liviu Ionescu.
 #
-# Permission to use, copy, modify, and/or distribute this software 
+# Permission to use, copy, modify, and/or distribute this software
 # for any purpose is hereby granted, under the terms of the MIT license.
 # -----------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ script_folder_name="$(basename "${script_folder_path}")"
 
 # =============================================================================
 
-# Inner script to run inside Docker containers to build the 
+# Inner script to run inside Docker containers to build the
 # xPack OpenOCD distribution packages.
 
 # For native builds, it runs on the host (macOS build cases,
@@ -164,7 +164,7 @@ prepare_xbb_extras
 # -----------------------------------------------------------------------------
 
 # The \x2C is a comma in hex; without this trick the regular expression
-# that processes this string in the Makefile, silently fails and the 
+# that processes this string in the Makefile, silently fails and the
 # bfdver.h file remains empty.
 BRANDING="${BRANDING}\x2C ${TARGET_BITS}-bit"
 
@@ -180,12 +180,12 @@ if [[ "${RELEASE_VERSION}" =~ 0\.10\.0-15 ]]
 then
 
   # ---------------------------------------------------------------------------
-  
+
   OPENOCD_VERSION="0.10.0-15"
 
   OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"xpack"}
   OPENOCD_GIT_COMMIT=${OPENOCD_GIT_COMMIT:-"191d1b176cf32280fc649d3c5afcff44d6205daf"}
-  
+
   # ---------------------------------------------------------------------------
 
   LIBUSB1_VERSION="1.0.22"
@@ -207,7 +207,7 @@ fi
 # -----------------------------------------------------------------------------
 
 OPENOCD_SRC_FOLDER_NAME=${OPENOCD_SRC_FOLDER_NAME:-"${OPENOCD_PROJECT_NAME}.git"}
-OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"http://xl01.l:8634/software/riscv-gnu-toolchain/openocd.git"}
+OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"http://gito/software/riscv-gnu-toolchain/openocd.git"}
 
 # Used in the licenses folder.
 OPENOCD_FOLDER_NAME="openocd-${OPENOCD_VERSION}"

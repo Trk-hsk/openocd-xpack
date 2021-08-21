@@ -83,17 +83,18 @@ source "${common_apps_functions_script_path}"
 
 # -----------------------------------------------------------------------------
 
-OPENOCD_PROJECT_NAME="openocd"
-OPENOCD_VERSION="0.10.0-15"
+# CHANGES: OpenOCD version
+OPENOCD_PROJECT_NAME=${OPENOCD_PROJECT_NAME:-"openocd"}
+OPENOCD_VERSION=${OPENOCD_VERSION:-"0.11.0"}
 
 OPENOCD_SRC_FOLDER_NAME=${OPENOCD_SRC_FOLDER_NAME:-"${OPENOCD_PROJECT_NAME}.git"}
-OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"https://github.com/xpack-dev-tools/openocd.git"}
+OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"https://github.com/riscv-mcu/riscv-openocd"}
 
 if [ "${IS_DEVELOP}" == "y" ]
 then
-  OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"xpack-develop"}
+  OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"nuclei-develop"}
 else
-  OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"xpack"}
+  OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"nuclei-master"}
 fi
 
 OPENOCD_GIT_COMMIT=${OPENOCD_GIT_COMMIT:-""}

@@ -65,6 +65,10 @@ common_functions_script_path="${script_folder_path}/common-functions-source.sh"
 echo "Common functions source script: \"${common_functions_script_path}\"."
 source "${common_functions_script_path}"
 
+common_source_path="${script_folder_path}/common-source.sh"
+echo "Common source script: \"${common_source_path}\"."
+source "${common_source_path}"
+
 container_functions_script_path="${script_folder_path}/helper/container-functions-source.sh"
 echo "Container helper functions source script: \"${container_functions_script_path}\"."
 source "${container_functions_script_path}"
@@ -168,23 +172,22 @@ prepare_xbb_extras
 # bfdver.h file remains empty.
 BRANDING="${BRANDING}\x2C ${TARGET_BITS}-bit"
 
-OPENOCD_PROJECT_NAME="openocd"
+OPENOCD_PROJECT_NAME=${OPENOCD_PROJECT_NAME:-"openocd"}
+OPENOCD_VERSION=${OPENOCD_VERSION:-"0.11.0"}
+OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"nuclei-master"}
 OPENOCD_GIT_COMMIT=${OPENOCD_GIT_COMMIT:-""}
-README_OUT_FILE_NAME="README-${RELEASE_VERSION}.md"
+README_OUT_FILE_NAME=${README_OUT_FILE_NAME:-"README-Changelog.md"}
+OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"https://github.com/riscv-mcu/riscv-openocd"}
+OPENOCD_SRC_FOLDER_NAME=${OPENOCD_SRC_FOLDER_NAME:-"${OPENOCD_PROJECT_NAME}.git"}
 
 LIBFTDI_PATCH=""
 LIBUSB_W32_PATCH=""
 
 # Keep them in sync with combo archive content.
-if [[ "${RELEASE_VERSION}" =~ 0\.10\.0-15 ]]
+if true
 then
 
   # ---------------------------------------------------------------------------
-
-  OPENOCD_VERSION="0.10.0-15"
-
-  OPENOCD_GIT_BRANCH=${OPENOCD_GIT_BRANCH:-"xpack"}
-  OPENOCD_GIT_COMMIT=${OPENOCD_GIT_COMMIT:-"191d1b176cf32280fc649d3c5afcff44d6205daf"}
 
   # ---------------------------------------------------------------------------
 
@@ -205,9 +208,6 @@ else
 fi
 
 # -----------------------------------------------------------------------------
-
-OPENOCD_SRC_FOLDER_NAME=${OPENOCD_SRC_FOLDER_NAME:-"${OPENOCD_PROJECT_NAME}.git"}
-OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"http://gito/software/riscv-gnu-toolchain/openocd.git"}
 
 # Used in the licenses folder.
 OPENOCD_FOLDER_NAME="openocd-${OPENOCD_VERSION}"

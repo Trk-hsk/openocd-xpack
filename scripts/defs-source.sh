@@ -17,6 +17,7 @@
 
 # Used to display the application name.
 APP_NAME=${APP_NAME:-"OpenOCD"}
+APP_BUILD=${APP_BUILD:-"build"}
 
 # Used as part of file/folder paths.
 APP_UC_NAME=${APP_UC_NAME:-"OpenOCD"}

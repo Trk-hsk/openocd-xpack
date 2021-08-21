@@ -14,6 +14,7 @@
 
 # -----------------------------------------------------------------------------
 
+# Use this as openocd source code definition template
 # -----------------------------------------------------------------------------
 OPENOCD_PROJECT_NAME="openocd"
 OPENOCD_VERSION="0.11.0"

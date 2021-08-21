@@ -65,9 +65,12 @@ common_functions_script_path="${script_folder_path}/common-functions-source.sh"
 echo "Common functions source script: \"${common_functions_script_path}\"."
 source "${common_functions_script_path}"
 
+# User defined openocd source code, branch, commit, version
 common_source_path="${script_folder_path}/common-source.sh"
-echo "Common source script: \"${common_source_path}\"."
-source "${common_source_path}"
+if [ -f ${common_source_path} ] ; then
+  echo "Common source script: \"${common_source_path}\"."
+  source "${common_source_path}"
+fi
 
 container_functions_script_path="${script_folder_path}/helper/container-functions-source.sh"
 echo "Container helper functions source script: \"${container_functions_script_path}\"."

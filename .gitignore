@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+# ignore source config, customized
+# you can use scripts/common-source-template.sh as template
+scripts/common-source.sh

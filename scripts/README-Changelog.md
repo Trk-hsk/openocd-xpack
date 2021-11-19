@@ -1,8 +1,8 @@
 # Nuclei OpenOCD Distribution
 
-## 2021.09
+## 2021.11
 
-This is release 2021.09 of openocd.
+This is release 2021.11 of openocd.
 
 > Currently is still in development.
 

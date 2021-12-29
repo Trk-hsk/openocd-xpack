@@ -1,11 +1,11 @@
 # Nuclei OpenOCD Distribution
 
-## 2021.11-eng1
+## 2021.12
 
-This is release 2021.11-eng1 of openocd.
+This is release 2021.12 of openocd.
 
-> Currently is still in development.
-
+* optimize cjtag support for nuclei cjtag
+* spi_nor: add BoHong bh25d80a bh25d40a bh25d20a
 * spi_nor: Add Micron MT25QU512
 * flash:"flash bank" command add simulation param
 * add nuclei all custom csr

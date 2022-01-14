@@ -1,8 +1,8 @@
 # Nuclei OpenOCD Distribution
 
-## 2021.12
+## 2022.01
 
-This is release 2021.12 of openocd.
+This is release 2022.01 of openocd.
 
 * optimize cjtag support for nuclei cjtag
 * spi_nor: add BoHong bh25d80a bh25d40a bh25d20a

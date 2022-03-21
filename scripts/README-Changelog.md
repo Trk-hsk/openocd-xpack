@@ -1,5 +1,12 @@
 # Nuclei OpenOCD Distribution
 
+## 2022.04-dev
+
+This is release 2022.04 of openocd, which is still in development.
+
+* openocd log message is not outputing to stderr now, default to stdout, only error message to stderr
+
+
 ## 2022.01
 
 This is release 2022.01 of openocd.

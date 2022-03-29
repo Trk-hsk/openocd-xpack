@@ -1,9 +1,14 @@
 # Nuclei OpenOCD Distribution
 
-## 2022.04-dev
+## 2022.04
 
-This is release 2022.04 of openocd, which is still in development.
+This is release 2022.04 of openocd.
 
+* add DSP ucode csr register
+* Adjustment simulation timeout param
+* Fix after write_bank/write_image command read date error bug
+* Add custom flash loader in openocd, please refer wiki for how to use it
+* Custom flash loader: add 'simulation' parameter for simulation test.
 
 
 ## 2022.01

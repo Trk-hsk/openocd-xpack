@@ -1,5 +1,14 @@
 # Nuclei OpenOCD Distribution
 
+## 2022.08
+
+This is release 2022.08 of openocd.
+
+* spi_nor:add xt25f256b mac25l1633e gd25q80b gd25le32e en25s40a by25q32al.
+* merge 'riscv/riscv'.
+* custom flashloader don't rely on 'src/flash/nor/spi.c'.
+
+
 ## 2022.04
 
 This is release 2022.04 of openocd.

@@ -5,7 +5,7 @@
 This is release 2022.08 of openocd.
 
 * spi_nor:add xt25f256b mac25l1633e gd25q80b gd25le32e en25s40a by25q32al.
-* merge 'riscv/riscv'.
+* merge upstream https://github.com/riscv/riscv-openocd commit id a2da8221872ae6d69369a8a03553450c942b559b.
 * custom flashloader don't rely on 'src/flash/nor/spi.c'.
 
 

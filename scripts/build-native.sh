@@ -88,7 +88,7 @@ OPENOCD_PROJECT_NAME=${OPENOCD_PROJECT_NAME:-"openocd"}
 OPENOCD_VERSION=${OPENOCD_VERSION:-"0.11.0"}
 
 OPENOCD_SRC_FOLDER_NAME=${OPENOCD_SRC_FOLDER_NAME:-"${OPENOCD_PROJECT_NAME}.git"}
-OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"https://github.com/riscv-mcu/riscv-openocd"}
+OPENOCD_GIT_URL=${OPENOCD_GIT_URL:-"https://github.com/Trk-hsk/riscv-openocd"}
 
 if [ "${IS_DEVELOP}" == "y" ]
 then

@@ -1,4 +1,4 @@
-# Nuclei OpenOCD Distribution
+# ASR OpenOCD Distribution
 
 ## 2022.08
 

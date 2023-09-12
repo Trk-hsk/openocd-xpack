@@ -638,7 +638,7 @@ function do_ftd2xx() {
   local ftd2xx_archive="${FTD2XX_SRC_FOLDER_NAME}.zip"
 
   local FTD2XX_VERSION="$1"
-  local ftd2xx_url="https://www.ftdichip.com/Drivers/CDM/CDM%20v${FTD2XX_VERSION}%20WHQL%20Certified.zip"
+  local ftd2xx_url="https://www.ftdichip.com/Driver/CDM/CDM%20v${FTD2XX_VERSION}%20WHQL%20Certified.zip"
 
   local ftd2xx_stamp_file_path="${INSTALL_FOLDER_PATH}/stamp-ftd2xx-${FTD2XX_VERSION}-installed"
   if [ ! -f "${ftd2xx_stamp_file_path}" ]
